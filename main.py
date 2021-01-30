@@ -133,7 +133,7 @@ def report_day(sess, t):
 
 
 def report_halfday(sess, t, temperature=37):
-    ii = '1' if t.hour < 19 else '2'
+    ii = '1' if t.hour < 12 else '2'#19→12
 
     url = f'https://selfreport.shu.edu.cn/XueSFX/HalfdayReport.aspx?day={t.year}-{t.month}-{t.day}&t={ii}'
 
@@ -236,8 +236,8 @@ if __name__ == "__main__":
                 t = START_DT
                 while t < now:
                     report_day(sess, t)
-                    report_halfday(sess, t + dt.timedelta(hours=8))
-                    report_halfday(sess, t + dt.timedelta(hours=20))
+                    report_halfday(sess, t + dt.timedelta(hours=0))#8
+                    report_halfday(sess, t + dt.timedelta(hours=12))#20
 
                     t = t + dt.timedelta(days=1)
 
