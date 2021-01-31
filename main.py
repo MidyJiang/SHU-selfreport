@@ -12,8 +12,8 @@ from login import login
 NEED_BEFORE = False  # 如需补报则置为True，否则False
 START_DT = dt.datetime(2020, 10, 10)  # 需要补报的起始日期
 
-crontab -e
-0 * * * * python -u /xxx/main.py 2>&1 >> /xxx/shu_report.log
+#crontab -e
+#0 * * * * python -u /xxx/main.py 2>&1 >> /xxx/shu_report.log
 
 
 # 获取东八区时间
